@@ -547,7 +547,6 @@ function GM:PlayerLoadout(client)
 
 		-- Apply any flags as needed.
 		ix.flag.OnSpawn(client)
-		ix.attributes.Setup(client)
 
 		hook.Run("PostPlayerLoadout", client)
 
