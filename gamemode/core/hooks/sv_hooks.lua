@@ -362,42 +362,6 @@ GM.PlayerGiveSWEP = IsAdmin
 GM.PlayerSpawnEffect = IsAdmin
 GM.PlayerSpawnSENT = IsAdmin
 
-function GM:PlayerSpawnNPC(client, npcType, weapon)
-	return client:IsAdmin() or client:GetCharacter():HasFlags("n")
-end
-
-function GM:PlayerSpawnSWEP(client, weapon, info)
-	return client:IsAdmin()
-end
-
-function GM:PlayerSpawnProp(client)
-	if (client:GetCharacter() and client:GetCharacter():HasFlags("e")) then
-		return true
-	end
-
-	return false
-end
-
-function GM:PlayerSpawnRagdoll(client)
-	if (client:GetCharacter() and client:GetCharacter():HasFlags("r")) then
-		return true
-	end
-
-	return false
-end
-
-function GM:PlayerSpawnVehicle(client, model, name, data)
-	if (client:GetCharacter()) then
-		if (data.Category == "Chairs") then
-			return client:GetCharacter():HasFlags("c")
-		else
-			return client:GetCharacter():HasFlags("C")
-		end
-	end
-
-	return false
-end
-
 function GM:PlayerSpawnedEffect(client, model, entity)
 	entity:SetNetVar("owner", client:GetCharacter():GetID())
 end
@@ -544,9 +508,6 @@ function GM:PlayerLoadout(client)
 				end
 			end
 		end
-
-		-- Apply any flags as needed.
-		ix.flag.OnSpawn(client)
 
 		hook.Run("PostPlayerLoadout", client)
 

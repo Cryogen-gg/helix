@@ -13,7 +13,6 @@ stds.helix.globals = {
 
 	"ITEM",
 	"PLUGIN",
-	"ATTRIBUTE",
 	"NAME",
 	"LANGUAGE",
 	"FACTION",

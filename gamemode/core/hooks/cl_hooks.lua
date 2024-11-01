@@ -12,6 +12,12 @@ end
 function GM:ScoreboardHide()
 end
 
+function GM:ShowHelp()
+	if (LocalPlayer():GetCharacter()) then
+		vgui.Create("ixMenu")
+	end
+end
+
 function GM:LoadFonts(font, genericFont)
 	surface.CreateFont("ix3D2DFont", {
 		font = font,
